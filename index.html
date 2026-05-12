@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cartões - Bio Cartões</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎈 Bio Cartões Personalizados</h1>
+        <p>Crie um cartão único em segundos!</p>
+
+        <div class="form-group">
+            <label for="nome">Nome do Aniversariante:</label>
+            <input type="text" id="nome" placeholder="Ex: Alessandro">
+            
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" placeholder="Ex: 21">
+
+            <label for="tema">Escolha o Tema:</label>
+            <select id="tema">
+                <option value="classic">Clássico (Azul)</option>
+                <option value="party">Festa (Colorido)</option>
+                <option value="dark">Moderno (Dark)</option>
+            </select>
+
+            <button onclick="gerarCartao()">Gerar Cartão ✨</button>
+        </div>
+
+        <div id="cartao-resultado" class="cartao hidden">
+            <h2 id="msg-felicitacao">Parabéns!</h2>
+            <div class="decoracao">🎂</div>
+            <p id="display-nome"></p>
+            <p id="display-idade"></p>
+            <p class="rodape">Feito com carinho pela Bio Cartões</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
