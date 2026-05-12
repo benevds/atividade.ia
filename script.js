@@ -1,39 +1,26 @@
-const inputNome = document.getElementById('inputNome');
-const inputIdade = document.getElementById('inputIdade');
-const cardNome = document.getElementById('cardNome');
-const cardIdade = document.getElementById('cardIdade');
-const mainCard = document.getElementById('mainCard');
-const colorDots = document.querySelectorAll('.color-dot');
-
-// Atualização em Tempo Real
-inputNome.addEventListener('input', (e) => {
-    cardNome.innerText = e.target.value || "Seu Nome";
-});
-
-inputIdade.addEventListener('input', (e) => {
-    if(e.target.value) {
-        cardIdade.innerText = `Parabéns pelos seus ${e.target.value} anos!`;
-    } else {
-        cardIdade.innerText = "Feliz Aniversário!";
+function gerarCartao() {
+    // Coleta dos dados
+    const nome = document.getElementById('nome').value;
+    const idade = document.getElementById('idade').value;
+    const tema = document.getElementById('tema').value;
+    
+    if (!nome || !idade) {
+        alert("Por favor, preencha o nome e a idade!");
+        return;
     }
-});
 
-// Troca de Temas
-colorDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-        // Remove classe ativa de todos
-        colorDots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
+    // Referências do Cartão
+    const cartao = document.getElementById('cartao-resultado');
+    const displayNome = document.getElementById('display-nome');
+    const displayIdade = document.getElementById('display-idade');
 
-        // Pega o tema do data-attribute
-        const theme = dot.getAttribute('data-theme');
-        
-        // Remove as classes de tema antigas e adiciona a nova
-        mainCard.className = `card-preview ${theme}`;
-    });
-});
+    // Atualização do conteúdo
+    displayNome.innerHTML = `<strong>${nome}</strong>`;
+    displayIdade.innerText = `Hoje você celebra ${idade} anos de vida!`;
 
-// Feedback de Salvamento
-document.getElementById('btnDownload').addEventListener('click', () => {
-    alert("✨ Card pronto! Em um sistema real, aqui geraríamos o PDF ou imagem para você.");
-});
+    // Aplicação do tema
+    cartao.className = `cartao ${tema}`;
+    
+    // Exibir o cartão
+    cartao.classList.remove('hidden');
+}
