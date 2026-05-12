@@ -3,62 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioCards | Premium Experience</title>
+    <title>Gerador de Cartões - Bio Cartões</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-wrapper">
-        <header>
-            <div class="logo">✨ BioCards</div>
-            <p>Transformando dados em celebração.</p>
-        </header>
+    <div class="container">
+        <h1>🎈 Bio Cartões Personalizados</h1>
+        <p>Crie um cartão único em segundos!</p>
 
-        <main class="main-content">
-            <section class="config-panel">
-                <h3>Personalize seu Card</h3>
-                
-                <div class="input-group">
-                    <label>Quem é a estrela do dia?</label>
-                    <input type="text" id="inputNome" placeholder="Digite o nome..." maxlength="20">
-                </div>
+        <div class="form-group">
+            <label for="nome">Nome do Aniversariante:</label>
+            <input type="text" id="nome" placeholder="Ex: Alessandro">
+            
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" placeholder="Ex: 21">
 
-                <div class="input-group">
-                    <label>Quantas primaveras?</label>
-                    <input type="number" id="inputIdade" placeholder="Ex: 21">
-                </div>
+            <label for="tema">Escolha o Tema:</label>
+            <select id="tema">
+                <option value="classic">Clássico (Azul)</option>
+                <option value="party">Festa (Colorido)</option>
+                <option value="dark">Moderno (Dark)</option>
+            </select>
 
-                <div class="input-group">
-                    <label>Paleta de Cores</label>
-                    <div class="color-options">
-                        <div class="color-dot active" data-theme="sunset" style="background: linear-gradient(45deg, #ff9a9e, #fad0c4);"></div>
-                        <div class="color-dot" data-theme="ocean" style="background: linear-gradient(45deg, #2193b0, #6dd5ed);"></div>
-                        <div class="color-dot" data-theme="emerald" style="background: linear-gradient(45deg, #11998e, #38ef7d);"></div>
-                        <div class="color-dot" data-theme="midnight" style="background: linear-gradient(45deg, #232526, #414345);"></div>
-                    </div>
-                </div>
+            <button onclick="gerarCartao()">Gerar Cartão ✨</button>
+        </div>
 
-                <button class="btn-primary" id="btnDownload">Finalizar e Salvar</button>
-            </section>
-
-            <section class="preview-panel">
-                <div class="card-preview sunset" id="mainCard">
-                    <div class="card-glass">
-                        <div class="card-header">
-                            <span class="badge">Especial para você</span>
-                        </div>
-                        <div class="card-body">
-                            <h2 id="cardNome">Seu Nome</h2>
-                            <div class="divider"></div>
-                            <p id="cardIdade">Feliz Aniversário!</p>
-                        </div>
-                        <div class="card-footer">
-                            <p>Que seu dia seja tão incrível quanto este código.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <div id="cartao-resultado" class="cartao hidden">
+            <h2 id="msg-felicitacao">Parabéns!</h2>
+            <div class="decoracao">🎂</div>
+            <p id="display-nome"></p>
+            <p id="display-idade"></p>
+            <p class="rodape">Feito com carinho pela Bio Cartões</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
